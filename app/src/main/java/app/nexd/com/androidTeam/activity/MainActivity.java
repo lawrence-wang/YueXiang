@@ -2,14 +2,17 @@ package app.nexd.com.androidTeam.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 
 import app.nexd.com.androidTeam.R;
 import app.nexd.com.androidTeam.activity.inter.IMainActivity;
@@ -39,7 +42,20 @@ public class MainActivity extends BaseActivity implements IMainActivity {
         baiduMap.setMyLocationConfigeration(new MyLocationConfiguration(mCurrentMode, true, null));
         baiduMap.setMyLocationEnabled(true); // 开启定位图层
         iMainPresenter.initBDMap();
-        iMainPresenter.startLocation();
+//        iMainPresenter.startLocation();
+        baiduMap.setOnMapClickListener(new BaiduMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Log.i("MapClick", latLng.latitude + ";" + latLng.longitude);
+            }
+
+            @Override
+            public boolean onMapPoiClick(MapPoi mapPoi) {
+                Log.i("PoiClick", mapPoi.getPosition().toString());
+//                baiduMap.addOverlay();
+                return false;
+            }
+        });
     }
 
 
