@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="#2f57e1">
+
+        <TextView
+            android:id="@+id/leftText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:singleLine="true"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/leftImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="250dp"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="北京颐堤港购物广场"
+            android:textSize="25sp" />
+
+        <ImageButton
+            android:id="@+id/rightImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomLaytou"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topLayout" />
+</RelativeLayout>

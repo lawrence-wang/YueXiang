@@ -2,6 +2,7 @@ package app.nexd.com.androidTeam.presenter;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.util.Log;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -70,6 +71,7 @@ public class IMainPresenterImpl implements IMainPresenter {
         option.setIgnoreKillProcess(false);//可选，默认false，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认杀死
         option.SetIgnoreCacheException(false);//可选，默认false，设置是否收集CRASH信息，默认收集
         option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤gps仿真结果，默认需要
+        option.setLocationNotify(true);
         mLocationClient.setLocOption(option);
     }
 
@@ -84,6 +86,8 @@ public class IMainPresenterImpl implements IMainPresenter {
             if (location == null || mMapView == null) {
                 return;
             }
+//            location.get
+            Log.i("cityCode", location.getCityCode());
             mMapView.setZoomControlsPosition(new Point((int) location.getLatitude(), (int) location.getLongitude()));
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())

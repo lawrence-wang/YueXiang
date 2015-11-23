@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#e0f0f0"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/popuImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/icon_mall" />
+
+    <TextView
+        android:id="@+id/mallName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/popuImage"
+        android:text="赛特购物中心"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/imageButton"
+        android:layout_below="@+id/mallName"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:paddingTop="5.5dp"
+        android:text="进去逛逛"
+        android:textSize="15sp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/mallName"
+        android:layout_below="@+id/mallName"
+        android:background="@drawable/icon_right" />
+</RelativeLayout>
