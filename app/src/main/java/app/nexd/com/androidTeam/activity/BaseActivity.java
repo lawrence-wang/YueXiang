@@ -22,7 +22,7 @@ public class BaseActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.base_layout);
+        setContentView(R.layout.back_base_layout);
         leftImageButton = (ImageButton) findViewById(R.id.leftImageButton);
         leftTextView = (TextView) findViewById(R.id.leftText);
         titleTextView = (TextView) findViewById(R.id.titleTextView);

@@ -1,12 +1,15 @@
 package app.nexd.com.androidTeam.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -17,29 +20,31 @@ import com.baidu.mapapi.map.MyLocationData;
 
 import app.nexd.com.androidTeam.R;
 import app.nexd.com.androidTeam.activity.inter.IMainActivity;
-import app.nexd.com.androidTeam.presenter.IMainPresenterImpl;
-import app.nexd.com.androidTeam.presenter.inter.IMainPresenter;
+import app.nexd.com.androidTeam.presenter.IMapViewPresenterImpl;
+import app.nexd.com.androidTeam.presenter.inter.IMapViewPresenter;
+import app.nexd.com.androidTeam.view.CityListActivity;
 
-public class MainActivity extends BaseActivity implements IMainActivity {
+public class MapViewActivity extends Activity implements IMainActivity, View.OnClickListener {
     private MapView mMapView;
-    private IMainPresenter iMainPresenter;
+    private IMapViewPresenter iMapViewPresenter;
     private BaiduMap baiduMap;
     private MyLocationConfiguration.LocationMode mCurrentMode;
     private BitmapDescriptor mCurrentMarker;
+    private TextView cityName;
+    private RelativeLayout city_layout;
     PopupWindow popupWindow;
 //    private GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-
-        this.bottonLayout.addView(LayoutInflater.from(this).inflate(R.layout.activity_main, null));
-//        gridView = (GridView) findViewById(R.id.gridview);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_column);
+        setContentView(R.layout.activity_main);
+        cityName = (TextView) this.findViewById(R.id.city_name);
+        city_layout = (RelativeLayout) this.findViewById(R.id.city_layout);
+        city_layout.setOnClickListener(this);
         mMapView = (MapView) findViewById(R.id.bmapView);
-//        mMapView.setVisibility(View.GONE);
-//        gridView.setVisibility(View.VISIBLE);
-        iMainPresenter = new IMainPresenterImpl(getApplicationContext(), this, mMapView);
+        iMapViewPresenter = new IMapViewPresenterImpl(getApplicationContext(), this, mMapView);
 
         baiduMap = mMapView.getMap();
         mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
@@ -48,8 +53,8 @@ public class MainActivity extends BaseActivity implements IMainActivity {
 //                .fromResource(R.drawable.icon_geo);
         baiduMap.setMyLocationConfigeration(new MyLocationConfiguration(mCurrentMode, true, null));
         baiduMap.setMyLocationEnabled(true); // 开启定位图层
-        iMainPresenter.initBDMap();
-        iMainPresenter.startLocation();
+        iMapViewPresenter.initBDMap();
+        iMapViewPresenter.startLocation();
 
 //
 //        LatLng point1 = new LatLng(39.92813694795621, 116.44467527125767);
@@ -150,7 +155,7 @@ public class MainActivity extends BaseActivity implements IMainActivity {
     @Override
     protected void onDestroy() {
         //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
-        iMainPresenter.stopLocation();
+        iMapViewPresenter.stopLocation();
         // 关闭定位图层
         baiduMap.setMyLocationEnabled(false);
         mMapView.onDestroy();
@@ -174,18 +179,33 @@ public class MainActivity extends BaseActivity implements IMainActivity {
 
     @Override
     protected void onStop() {
-        iMainPresenter.stopLocation();
+        iMapViewPresenter.stopLocation();
         super.onStop();
     }
 
-    public void goToNext(View view) {
-        Intent intent = new Intent(this, RoutePlanToNevigActivity.class);
-        startActivity(intent);
-    }
+//    public void goToNext(View view) {
+//        Intent intent = new Intent(this, RoutePlanToNevigActivity.class);
+//        startActivity(intent);
+//    }
 
     @Override
     public void setLocationDataAndUpdate(MyLocationData locationData, MapStatusUpdate mapStatusUpdate) {
         baiduMap.setMyLocationData(locationData);
         baiduMap.animateMapStatus(mapStatusUpdate);
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.city_layout:
+                Intent intent = new Intent(MapViewActivity.this, CityListActivity.class);
+                MapViewActivity.this.startActivity(intent);
+                break;
+        }
     }
 }

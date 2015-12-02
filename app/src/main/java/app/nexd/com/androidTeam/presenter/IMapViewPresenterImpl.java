@@ -15,12 +15,12 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 
 import app.nexd.com.androidTeam.activity.inter.IMainActivity;
-import app.nexd.com.androidTeam.presenter.inter.IMainPresenter;
+import app.nexd.com.androidTeam.presenter.inter.IMapViewPresenter;
 
 /**
  * Created by lawrence on 2015/11/10.
  */
-public class IMainPresenterImpl implements IMainPresenter {
+public class IMapViewPresenterImpl implements IMapViewPresenter {
     private LocationClient mLocationClient = null;
     private BDLocationListener myListener = null;
     private boolean isFirstLocation = true;
@@ -28,7 +28,7 @@ public class IMainPresenterImpl implements IMainPresenter {
     private MapView mMapView;
 
 
-    public IMainPresenterImpl(Context context, IMainActivity iMainActivity, MapView mMapView) {
+    public IMapViewPresenterImpl(Context context, IMainActivity iMainActivity, MapView mMapView) {
         this.iMainActivity = iMainActivity;
         this.mMapView = mMapView;
         mLocationClient = new LocationClient(context);     //声明LocationClient类

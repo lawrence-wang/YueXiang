@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/app/libs/pinyin4j-2.5.0.jar" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/application/PinyinSearchApplication.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/helper/ContactsHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/mode/BaseContacts.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/mode/Contacts.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/util/pinyin/PinyinBaseUnit.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/util/pinyin/PinyinUnit.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/util/pinyin/PinyinUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/util/pinyin/QwertyMatchPinyinUnits.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/util/pinyin/T9MatchPinyinUnits.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/app/nexd/com/androidTeam/util/pinyin/T9Util.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/city_locating_anim.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/publicloading.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_choose_city_normal.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/city_switch_pressed.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/common_alert_bg.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_btn_off_normal.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_btn_off_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_letter_search_normal.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_list_search_enabled.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_list_search_icon.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_list_search_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_title_change_map_disenabled.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_title_change_map_normal.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_title_change_map_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_title_drawable.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/wb_title_search_disabled.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/bg_shop_search.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_gray_delete_sel.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_gray_delete_unsel.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_search_sel.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_search_unsel.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/icon_search.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/topbar_bg.9.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_back_btn_normal.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_back_btn_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_btn_off_normal.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_btn_off_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_list_search_icon.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_list_search_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_title_change_map_normal.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_title_change_map_pressed.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_title_map_disabled.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/wb_title_search_disabled.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/city_hot_grid_item.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/clickable_white_to_gray.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/icon.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/city_hot_item_layout.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/city_locate_layout.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/city_search_list_item.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/empty_search_city_item.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/public_cityhot_allcity.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/public_cityhot_header_padding.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/public_cityhot_header_padding_blank.xml" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
