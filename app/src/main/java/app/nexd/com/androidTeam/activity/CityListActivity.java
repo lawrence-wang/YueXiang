@@ -1,4 +1,4 @@
-package app.nexd.com.androidTeam.view;
+package app.nexd.com.androidTeam.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -34,6 +34,7 @@ import java.util.List;
 import app.nexd.com.androidTeam.R;
 import app.nexd.com.androidTeam.mode.CityModel;
 import app.nexd.com.androidTeam.util.Setting;
+import app.nexd.com.androidTeam.view.MyLetterListView;
 
 /**
  * 城市选择
@@ -50,7 +51,7 @@ public class CityListActivity extends Activity {
     private String[] sections;
     private Handler handler;
     private OverlayThread overlayThread;
-//    private SQLiteDatabase database;
+    //    private SQLiteDatabase database;
     private ArrayList<CityModel> mCityNames;
     private View city_locating_state;
     private View city_locate_failed;
@@ -60,9 +61,10 @@ public class CityListActivity extends Activity {
     private LocationClient locationClient = null;
     private ImageButton back;
     View hotcityall;
-
-//    String[] hotcity = new String[]{"北京", "上海", "广州", "深圳", "杭州", "南京", "天津", "武汉", "重庆"};
+    //    private String cityDatas = "";
+    //    String[] hotcity = new String[]{"北京", "上海", "广州", "深圳", "杭州", "南京", "天津", "武汉", "重庆"};
     WindowManager windowManager;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +87,7 @@ public class CityListActivity extends Activity {
         city_locate_success_img = ((ImageView) cityhot_header_blank.findViewById(R.id.city_locate_success_img));
         city_locate_failed = cityhot_header_blank.findViewById(R.id.city_locate_failed);
         mCityLit.addHeaderView(cityhot_header_blank);
-
+        mCityNames = getIntent().getParcelableArrayListExtra("citys");
 //        View hotheadview = localLayoutInflater.inflate(R.layout.public_cityhot_header_padding, mCityLit, false);
 //        mCityLit.addHeaderView(hotheadview, null, false);
         hotcityall = localLayoutInflater.inflate(R.layout.public_cityhot_allcity, mCityLit, false);
@@ -117,18 +119,18 @@ public class CityListActivity extends Activity {
         city_locating_state.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String cityModel=city_locate_state.getText().toString();
+                String cityModel = city_locate_state.getText().toString();
                 Setting.Save2SharedPreferences(CityListActivity.this, "city",
                         cityModel);
-                Intent intent =new Intent();
-                intent.putExtra("city",cityModel);
-                setResult(2,intent);
+                Intent intent = new Intent();
+                intent.putExtra("city", cityModel);
+                setResult(2, intent);
                 finish();
             }
         });
         loadLocation();
 
-        mCityNames = getCityNames();
+//        mCityNames = getCityNames(cityDatas);
 //        database.close();
         letterListView
                 .setOnTouchingLetterChangedListener(new LetterListViewListener());
@@ -162,10 +164,10 @@ public class CityListActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (resultCode) {
             case RESULT_OK:
-                String city=data.getStringExtra("city");
-                Intent intent =new Intent();
-                intent.putExtra("city",city);
-                setResult(2,intent);
+                String city = data.getStringExtra("city");
+                Intent intent = new Intent();
+                intent.putExtra("city", city);
+                setResult(2, intent);
                 finish();
                 break;
 
@@ -233,21 +235,36 @@ public class CityListActivity extends Activity {
     /**
      * @return
      */
-    private ArrayList<CityModel> getCityNames() {
-        ArrayList<CityModel> names = new ArrayList<CityModel>();
+//    private ArrayList<CityModel> getCityNames(String cityDatas) {
+//        // TODO
+//        ArrayList<CityModel> names = new ArrayList<>();
+//
+//        try {
+//            JSONArray citys = new JSONArray(cityDatas);
+//            for (int i = 0; i < citys.length(); i++) {
+//                JSONObject city = citys.getJSONObject(i);
+//                CityModel cityModel = new CityModel();
+//                cityModel.setCityName(city.getString("cityCName"));
+//                cityModel.setCityEname(city.getString("cityEName"));
+//                cityModel.setCityCode(city.getString("cityCode"));
+//                names.add(cityModel);
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
-        for (int i = 1; i <= 10; i++) {
-            CityModel cityModel = new CityModel();
-            cityModel.setCityName("北京" + i);
-            cityModel.setNameSort("B");
-            names.add(cityModel);
-        }
-        CityModel cityMod = new CityModel();
-        cityMod.setCityName("上海");
-        cityMod.setNameSort("S");
-        names.add(cityMod);
-        return names;
-    }
+//        for (int i = 1; i <= 10; i++) {
+//            CityModel cityModel = new CityModel();
+//            cityModel.setCityName("北京" + i);
+//            cityModel.setNameSort("B");
+//            names.add(cityModel);
+//        }
+//        CityModel cityMod = new CityModel();
+//        cityMod.setCityName("上海");
+//        cityMod.setNameSort("S");
+//        names.add(cityMod);
+//        return names;
+//    }
 
     /**
      * б 1/4
@@ -261,11 +278,11 @@ public class CityListActivity extends Activity {
                                 long arg3) {
             CityModel cityModel = (CityModel) mCityLit.getAdapter()
                     .getItem(pos);
-            if(cityModel!=null) {
+            if (cityModel != null) {
                 Setting.Save2SharedPreferences(CityListActivity.this, "city",
                         cityModel.getCityName());
-                Intent intent =new Intent();
-                intent.putExtra("city",cityModel.getCityName());
+                Intent intent = new Intent();
+                intent.putExtra("city", cityModel.getCityName());
                 setResult(2, intent);
                 finish();
             }
@@ -383,11 +400,13 @@ public class CityListActivity extends Activity {
                 .getSystemService(Context.WINDOW_SERVICE);
         windowManager.addView(overlay, lp);
     }
+
     @Override
     protected void onDestroy() {
         windowManager.removeView(overlay);
         super.onDestroy();
     }
+
     private class LetterListViewListener implements
             MyLetterListView.OnTouchingLetterChangedListener {
 

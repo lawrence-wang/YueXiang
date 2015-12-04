@@ -12,12 +12,6 @@ android {
         versionName "1.0"
     }
 
-//    sourceSets {
-//        main {
-//            jniLibs.srcDirs = ['libs']
-//        }
-//    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -33,6 +27,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile files('libs/pinyin4j-2.5.0.jar')
+    //    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'com.mcxiaoke.volley:library:1.0.6'
+    compile files('libs/nexd_map_v1.0.1_build_201512041204.jar')
 }
